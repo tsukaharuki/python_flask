@@ -36,6 +36,23 @@ FLASK_APP=demo/demo.py FLASK_ENV=development flask run
 - 自己紹介: http://127.0.0.1:5000/p
 - 趣味: http://127.0.0.1:5000/h
 
+## サーバーの停止・再起動
+
+**サーバーを停止する場合：**
+- ターミナルで `Ctrl+C` を押す
+
+**ポートが使用中の場合の強制停止：**
+```bash
+# ポート5000を使用しているプロセスIDを確認
+lsof -ti:5000
+
+# プロセスを強制終了（例: PIDが12345の場合）
+kill -9 12345
+
+# 再度起動
+FLASK_APP=demo/demo.py FLASK_ENV=development flask run
+```
+
 ## テンプレート継承
 
 このプロジェクトでは、Jinja2のテンプレート継承機能を使用しています：
